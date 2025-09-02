@@ -1,79 +1,65 @@
 # 🚀 Edmonds Blossom Algorithm Implementation
 
-Dive deep into the fascinating world of graph theory with this robust C++ implementation of the **Edmonds Blossom Algorithm**! This project provides a precise and efficient solution to the critical challenge of finding maximum weight matchings in general graphs, a fundamental problem with wide-ranging applications from logistics to bioinformatics.
+This repository presents a robust and efficient C++ implementation of the **Edmonds Blossom Algorithm**, a foundational algorithm in graph theory for finding maximum cardinality matchings in general graphs. Unlike simpler matching algorithms that only work on bipartite graphs, the Edmonds Blossom Algorithm conquers the complexity of arbitrary graphs, including those with odd cycles (blossoms), making it an indispensable tool for advanced graph problems.
 
 ## Short Description
-
-This repository presents a meticulously crafted C++ implementation of Jack Edmonds' groundbreaking Blossom Algorithm. It's designed to solve the problem of finding a maximum cardinality matching (or maximum weight matching with slight adaptation) in any arbitrary graph, extending beyond the simpler bipartite case. Explore a powerful algorithm made accessible, complete with clear code, visual demonstrations, and comprehensive documentation.
+Dive deep into the world of combinatorial optimization with this C++ implementation of the Edmonds Blossom Algorithm. Designed for clarity and performance, this project provides a practical solution for computing maximum matchings in any graph, accompanied by illustrative examples and a detailed theoretical report.
 
 ## ✨ Key Features
-
-*   **Pioneering Algorithm:** A faithful and efficient C++ implementation of the Edmonds Blossom Algorithm.
-*   **General Graph Support:** Solves maximum matching problems in any graph, including non-bipartite structures containing odd cycles (blossoms).
-*   **Clear Visualizations:** Includes illustrative GIFs (`Inputs.gif`, `Matching.gif`) to demonstrate graph construction and the matching process.
-*   **Comprehensive Documentation:** Accompanied by a detailed report (`Report_Implementation_of_Edmonds_Blossom_Algorithm.pdf`) explaining the algorithm's theory, implementation details, and analysis.
-*   **Educational Resource:** An ideal resource for students, researchers, and developers exploring advanced graph algorithms.
+*   **Complete C++ Implementation:** A well-structured and optimized C++ codebase for the Edmonds Blossom Algorithm.
+*   **Handles General Graphs:** Effectively computes maximum cardinality matchings in any graph, including those containing odd cycles.
+*   **Visual Learning Aids:** Includes `Inputs.gif` and `Matching.gif` to visually demonstrate graph inputs and the matching process.
+*   **Comprehensive Documentation:** Accompanied by `Report_Implementation_of_Edmonds_Blossom_Algorithm.pdf`, a detailed report explaining the algorithm's theory and implementation specifics.
+*   **Efficient Problem Solving:** Provides a solid foundation for tackling complex graph optimization challenges.
 
 ## Who is this for?
-
-*   **Computer Science Students:** Gaining a deeper understanding of advanced graph theory, matching algorithms, and C++ implementation practices.
-*   **Algorithm Enthusiasts:** Exploring the elegance and complexity of one of the most significant algorithms in combinatorial optimization.
-*   **Researchers & Academics:** A foundational reference or starting point for projects involving graph matching in various domains.
-*   **Developers:** Those needing a clear, self-contained implementation of a maximum matching algorithm for general graphs.
+*   **Computer Science Students:** An excellent resource for understanding advanced graph algorithms and data structures.
+*   **Researchers:** A reliable implementation for experimental work in graph theory, combinatorial optimization, and algorithm analysis.
+*   **Competitive Programmers:** A powerful tool for solving problems involving maximum matchings in general graphs.
+*   **Algorithm Enthusiasts:** Anyone eager to explore the elegance and complexity of one of graph theory's most significant algorithms.
 
 ## Technology Stack & Architecture
-
-This project is built primarily with:
-
-*   **C++:** The core algorithm logic and graph operations are implemented in C++.
-
-The architecture revolves around the algorithm's procedural execution:
-1.  **Graph Representation:** An efficient internal representation of the graph (likely adjacency lists or matrix).
-2.  **Matching Logic:** The core Edmonds Blossom algorithm, involving BFS for augmenting paths, blossom detection, contraction, and expansion.
-3.  **Input/Output:** Mechanisms to define graph inputs and present matching results.
+*   **Primary Language:** C++
+*   **Core Algorithm:** Edmonds Blossom Algorithm
+*   **Project Structure:** A single-file C++ implementation (`graph.cpp`) focused purely on the algorithm's logic, making it easy to integrate and understand.
 
 ## 📊 Architecture & Database Schema
-
-The project implements a procedural algorithm rather than a database schema. Below is a simplified flowchart representing the core steps of the Edmonds Blossom Algorithm.
+This project is an algorithmic implementation rather than a database-driven application. Therefore, an Entity-Relationship Diagram (ERD) is not applicable. Instead, we visualize the high-level operational flow of the Edmonds Blossom Algorithm as implemented.
 
 ```mermaid
 graph TD
-    A[Start] --> B{Initialize Graph G & Empty Matching M};
-    B --> C{Search for an Augmenting Path in G w.r.t. M?};
-    C -- Yes --> D{Augment M along Path};
-    C -- No --> E{Is an Odd Cycle (Blossom) Found?};
-    E -- Yes --> F{Contract Blossom into a "Supernode"};
-    F --> G{Recursively Search in Contracted Graph};
-    G --> H{Expand Blossom & Adjust Matching};
-    H --> B;
-    D --> B;
-    E -- No --> I[Return M (Maximum Matching)];
-    I --> J[End];
+    A["Start: Define Graph (Vertices & Edges)"] --> B{"Current Matching Maximal?"};
+    B -- "No" --> C["Find Augmenting Path"];
+    C --> D{"Blossom Detected?"};
+    D -- "Yes" --> E["Contract Blossom"];
+    E --> C;
+    D -- "No" --> F["Augment Matching"];
+    F --> G["Update Matching"];
+    G --> B;
+    B -- "Yes" --> H["End: Maximum Matching Found"];
 ```
+This flowchart illustrates the iterative process: the algorithm continuously searches for augmenting paths. If an odd cycle (blossom) is encountered, it's contracted to simplify the graph, and the search continues. Once an augmenting path is found, the matching is updated, and the process repeats until no more augmenting paths can be found, signifying a maximum matching.
 
 ## ⚡ Quick Start Guide
-
-To get this powerful algorithm up and running on your local machine:
+To get this powerful algorithm running on your machine:
 
 1.  **Clone the Repository:**
     ```bash
     git clone https://github.com/grewal16/edmonds-blossom-algorithm.git
+    ```
+2.  **Navigate to Project Directory:**
+    ```bash
     cd edmonds-blossom-algorithm
     ```
-
-2.  **Compile the C++ Code:**
-    Ensure you have a C++ compiler (like g++) installed.
+3.  **Compile the C++ Code:**
     ```bash
-    g++ -std=c++11 -O2 -Wall graph.cpp -o edmonds_blossom
+    g++ graph.cpp -o edmonds_blossom
     ```
-
-3.  **Run the Executable:**
-    Execute the compiled program. You may need to provide graph input as per the program's requirements (refer to `Report_Implementation_of_Edmonds_Blossom_Algorithm.pdf` for details on input format).
+4.  **Run the Executable:**
     ```bash
     ./edmonds_blossom
     ```
-    Observe the output, which will detail the maximum matching found!
+    The program will then await graph input, typically provided through standard input in a format like: first line `N M` (number of vertices, number of edges), followed by `M` lines each containing `u v` for an edge between vertex `u` and `v`.
 
 ## 📜 License
-
-A comprehensive `LICENSE` file is included in the repository root, outlining the terms and conditions for usage and distribution of this project. The specific license type is detailed within that file.
+A license file is present in the repository.
