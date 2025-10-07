@@ -10,62 +10,59 @@
 </p>
 
 ## Short Description
-Dive deep into the heart of graph theory with this cutting-edge C++ implementation of the celebrated Edmonds Blossom Algorithm! This project provides a robust, efficient, and thoroughly documented solution for finding maximum weight matchings in general graphs. Witness the algorithmic magic unfold, from initial graph inputs to the precise identification of maximum matchings, making complex graph problems accessible and solvable.
+Dive into the heart of graph theory with this robust C++ implementation of Edmonds' Blossom Algorithm, a pivotal solution for finding maximum weight matchings in general graphs. This project offers a clear, efficient, and well-documented approach to tackling one of the most challenging problems in algorithmic graph theory.
 
 ## 🛡️ Project Health & Status
-This project represents a mature and academically sound implementation of a fundamental algorithm. With comprehensive documentation provided in an accompanying report and visual demonstrations, it's a solid foundation for study, research, and integration into larger graph processing systems.
+This project represents a stable, well-documented academic implementation of the Edmonds' Blossom Algorithm, complete with a comprehensive report for in-depth understanding. While not designed for continuous integration or extensive test suites, its core functionality is well-defined and demonstrates a solid grasp of the underlying algorithm.
 
 ## ✨ Key Features
-*   **High-Performance C++ Implementation**: Leverages the power of C++ for optimal execution speed.
-*   **Maximum Matching**: Accurately computes maximum matchings in any general graph.
-*   **Visual Demonstrations**: Intuitive GIF animations (`Inputs.gif`, `Matching.gif`) illustrate the algorithm's operation from input to output.
-*   **Comprehensive Documentation**: Accompanied by a detailed PDF report (`Report_Implementation_of_Edmonds_Blossom_Algorithm.pdf`) explaining the algorithm and implementation nuances.
-*   **Clear & Modular Codebase**: `graph.cpp` encapsulates the algorithm logic in an understandable structure.
+*   **Accurate Algorithm Implementation**: A precise and efficient C++ rendition of Edmonds' Blossom Algorithm.
+*   **General Graph Support**: Capable of finding maximum matchings in any general graph, including those with odd cycles.
+*   **In-depth Documentation**: Accompanied by a detailed analytical report (`Report_Implementation_of_Edmonds_Blossom_Algorithm.pdf`) explaining the theory and implementation.
+*   **Visual Demonstrations**: Includes animated GIFs (`Inputs.gif`, `Matching.gif`) to visually illustrate the algorithm's input and output.
+*   **Clean Codebase**: Written in clean, maintainable C++ for easy understanding and potential extension.
 
 ## Who is this for?
-This repository is an invaluable resource for:
-*   **Computer Science Students**: Ideal for understanding advanced graph algorithms and data structures.
-*   **Researchers**: Provides a reliable C++ base for maximum matching problems in various domains.
-*   **Algorithm Enthusiasts**: Anyone passionate about the elegance and power of classic algorithmic solutions.
-*   **Developers**: Seeking a high-performance C++ library component for graph analysis.
+This project is an invaluable resource for computer science students, graph theory researchers, algorithm enthusiasts, and anyone looking to deepen their understanding or utilize an efficient solution for maximum matching problems in general graphs.
 
 ## Technology Stack & Architecture
-This project is built primarily with:
-*   **C++**: The core logic and implementation are written in modern C++.
+This project is a pure, high-performance C++ application designed for efficient computation.
+*   **Core Language**: C++
+*   **Primary Tool**: Any standard C++ compiler (e.g., g++).
 
 ## 📊 Architecture & Database Schema
-The Edmonds Blossom Algorithm is a procedural graph algorithm, focusing on graph traversal and manipulation. Below is a high-level flowchart depicting its operational flow:
+The architecture of this project is focused on the in-memory execution of the Edmonds' Blossom Algorithm. It takes a graph as input, processes it using the algorithm, and outputs the computed maximum matching.
 
 ```mermaid
 graph TD
-    A["Input Graph (Nodes & Edges)"] --> B["Initialize Data Structures"];
-    B --> C["Edmonds Blossom Algorithm Execution"];
-    C --> D["Identify Augmenting Paths"];
-    D --> E{"Blossom Formation/Contraction"};
-    E --> C;
-    E -- "No more augmenting paths" --> F["Maximum Matching Result"];
+    A["Input Graph Data"] --> B["Edmonds' Blossom Algorithm (C++)"];
+    B --> C["Optimal Matching Result"];
 ```
 
 ## ⚙️ Configuration & Deployment
-This project is a standalone C++ application. It requires a standard C++ compiler (like GCC or Clang) to build. No complex configuration files or external dependencies are typically needed beyond a C++ toolchain.
+This project is a standalone C++ application. No complex configurations, external services, or containerization are required. Simply compile the source code using a standard C++ compiler.
 
 ## ⚡ Quick Start Guide
-To get the Edmonds Blossom Algorithm up and running, simply follow these steps:
+Get up and running with the Edmonds' Blossom Algorithm in a few simple steps:
 
 1.  **Clone the Repository**:
     ```bash
     git clone https://github.com/grewal16/edmonds-blossom-algorithm.git
+    ```
+2.  **Navigate to the Project Directory**:
+    ```bash
     cd edmonds-blossom-algorithm
     ```
-2.  **Compile the C++ Code**:
+3.  **Compile the Code**:
+    Use a C++ compiler like g++ to compile `graph.cpp`:
     ```bash
-    g++ graph.cpp -o edmonds_blossom
+    g++ graph.cpp -o blossom_matching
     ```
-3.  **Run the Executable**:
+4.  **Run the Executable**:
+    Execute the compiled program. It's designed to take graph input and output the matching:
     ```bash
-    ./edmonds_blossom
+    ./blossom_matching
     ```
-    (Note: Input format may vary based on implementation details within `graph.cpp`. Refer to the `Report_Implementation_of_Edmonds_Blossom_Algorithm.pdf` for specific usage instructions.)
 
 ## 📜 License
-This project is licensed under the terms found in the [LICENSE](./LICENSE) file.
+This project is licensed under the terms found in the [LICENSE](LICENSE) file.
