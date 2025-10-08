@@ -1,6 +1,6 @@
-# 🚀 Edmonds Blossom Algorithm
+# 🚀 edmonds-blossom-algorithm
 
-<p align="center"><img src="./Inputs.gif" alt="Edmonds Blossom Algorithm Input Example" width="700"></p>
+<p align="center"><img src="./Matching.gif" alt="Edmonds Blossom Algorithm Matching Visualization" width="500"></p>
 
 <p align="center">
   <a href="https://github.com/grewal16/edmonds-blossom-algorithm/stargazers"><img src="https://img.shields.io/github/stars/grewal16/edmonds-blossom-algorithm?style=for-the-badge" alt="GitHub stars"></a>
@@ -10,46 +10,50 @@
 </p>
 
 ## Short Description
-Unleash the power of optimal matching in general graphs with a robust C++ implementation of the legendary Edmonds Blossom Algorithm. This project allows you to dive deep into complex graph structures and find maximum matchings with unparalleled efficiency, going beyond the limitations of bipartite graphs.
+Dive into the heart of graph theory with this robust C++ implementation of the renowned Edmonds Blossom Algorithm! Designed to find maximum cardinality matchings in general graphs, this project offers a clear, efficient, and well-documented solution for a fundamental problem in combinatorial optimization.
 
 ## 🛡️ Project Health & Status
-This project provides a stable, well-documented, and thoroughly implemented solution for the Edmonds Blossom Algorithm. It's ready for analytical study, integration into larger systems, or as a foundational piece for academic research in graph theory.
+This project is a stable, self-contained implementation, best categorized as a Proof-of-Concept / Educational Tool. It focuses on the core algorithm logic without external dependencies beyond standard C++ libraries, making it ideal for study and direct application where understanding the algorithm is paramount.
 
 ## ✨ Key Features
-*   **🚀 Masterful Graph Matching:** A precise and efficient C++ implementation of the Edmonds Blossom Algorithm.
-*   **🌐 General Graph Support:** Go beyond bipartite graphs; confidently find maximum matchings in *any* type of graph.
-*   **💡 Clear Visual Demonstrations:** Included GIFs (`Inputs.gif`, `Matching.gif`) vividly illustrate the algorithm's process and the resulting matching.
-*   **📚 Comprehensive Documentation:** Accompanied by a detailed PDF report (`Report_Implementation_of_Edmonds_Blossom_Algorithm.pdf`) explaining the algorithm's theory and its implementation.
-*   **⚡ Optimized Performance:** Designed for effective performance when tackling complex graph scenarios.
+*   **Pure C++ Implementation:** A lean, high-performance solution leveraging standard C++ features.
+*   **Maximum Cardinality Matching:** Efficiently computes the largest possible matching in any given general graph.
+*   **Blossom Contraction Handling:** Accurately implements the intricate blossom contraction and expansion steps central to Edmonds' algorithm.
+*   **Clear and Understandable Codebase:** Designed for easy comprehension and further academic exploration.
+*   **Illustrative Examples:** Accompanied by `.gif` visualizations (e.g., `Inputs.gif`, `Matching.gif`) demonstrating algorithm behavior.
 
 ## Who is this for?
-This project is an invaluable resource for computer science students, algorithm researchers, competitive programmers, and anyone passionate about graph theory and combinatorial optimization looking for a deep dive into advanced matching algorithms.
+This repository is an invaluable resource for:
+*   **Computer Science Students:** Gaining a deeper understanding of advanced graph algorithms.
+*   **Algorithm Enthusiasts:** Exploring classic solutions to combinatorial optimization problems.
+*   **Researchers:** As a foundational component or reference for graph matching studies.
+*   **Competitive Programmers:** A ready-to-use, efficient implementation for contest problems.
 
 ## Technology Stack & Architecture
 *   **Core Language:** C++
-*   **Build System:** Standard C++ Compiler (e.g., GCC, Clang)
+*   **Build System:** Standard C++ Compiler (e.g., g++)
+*   **Libraries:** Standard C++ Library only.
 
 ## 📊 Architecture & Database Schema
-The Edmonds Blossom Algorithm is a sophisticated graph algorithm. Below is a high-level flowchart illustrating its core operational flow:
+The project's architecture is a direct, single-module implementation of the Edmonds Blossom algorithm. The core logic handles graph input, processes paths, contracts and expands "blossoms" to find augmenting paths, and ultimately determines the maximum matching.
 
 ```mermaid
 graph TD
-    A["Input Graph (G)"] --> B{"Initialize Matching & BFS"};
-    B -- "Find Augmenting Path" --> C{"Path Found?"};
-    C -- "No" --> D["Output Maximum Matching"];
-    C -- "Yes" --> E{"Blossom Found?"};
-    E -- "Yes" --> F["Shrink Blossom"];
-    E -- "No" --> G["Augment Path"];
-    F --> B;
-    G --> H["Unshrink Blossoms"];
-    H --> B;
+    A["Input Graph (Adjacency List/Matrix)"] --> B["Initialize Data Structures"];
+    B --> C["Find Augmenting Path (BFS/DFS)"];
+    C -- "No Path Found?" --> D{Algorithm Terminates};
+    C -- "Path Found?" --> E["Identify & Contract Blossom (if applicable)"];
+    E --> F["Augment Path"];
+    F --> G["Expand Blossom (if applicable)"];
+    G --> C;
+    D --> H["Output Maximum Matching"];
 ```
 
 ## ⚙️ Configuration & Deployment
-This project is a standalone C++ application. It requires a standard C++ compiler (like g++ or Clang) to compile and execute. There are no complex configuration files or external dependencies beyond a basic C++ development environment.
+No complex configuration or deployment steps are required. The project is a standalone C++ source file. Compilation typically involves a standard C++ compiler, and execution is direct.
 
 ## ⚡ Quick Start Guide
-Get up and running with the Edmonds Blossom Algorithm in minutes!
+To get this powerful algorithm running on your local machine:
 
 1.  **Clone the repository:**
     ```bash
@@ -58,13 +62,14 @@ Get up and running with the Edmonds Blossom Algorithm in minutes!
     ```
 2.  **Compile the source code:**
     ```bash
-    g++ graph.cpp -o edmonds_blossom
+    g++ graph.cpp -o edmonds_blossom -std=c++11 -O2
     ```
+    (Ensure you have a C++ compiler like `g++` installed.)
 3.  **Run the executable:**
     ```bash
     ./edmonds_blossom
     ```
-    *Note: The program's input method (e.g., command-line arguments, standard input) would typically be detailed within the source code or the accompanying PDF report.*
+    (The program will likely expect graph input via `stdin` or a file, as is common for algorithm implementations.)
 
 ## 📜 License
-This project is licensed under the terms available in the [LICENSE](LICENSE) file.
+This project is open-sourced under the MIT License. See the `LICENSE` file for more details.
